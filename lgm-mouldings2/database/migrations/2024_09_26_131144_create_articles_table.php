@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('material');
             $table->string('color');
             $table->string('image')->nullable();
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->decimal('storage')->nullable();
             $table->decimal('price');
             $table->timestamps();
