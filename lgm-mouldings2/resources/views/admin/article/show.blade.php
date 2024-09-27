@@ -22,7 +22,7 @@
                     </ul>
 
                     <div class="d-flex justify-content-center gap-4">
-                        <a class=" btn btn-warning" href="">Modifica Articolo</a>
+                        <a class=" btn btn-warning" href="{{route('admin.article.edit', $article)}}">Modifica Articolo</a>
                         <a class="btn btn-danger" href="">Elimina Articolo</a>
                     </div>
 

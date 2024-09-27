@@ -46,4 +46,30 @@ class ArticleController extends Controller
         return to_route('admin.article.show', $new_article);
 
     }
+
+    public function edit(Article $article){
+        return view('admin.article.edit', compact('article'));
+    }
+
+    public function update(Request $request, Article $article){
+
+        $form_data = $request->validate([
+            'article'=> 'required',
+            'color' => 'required',
+            'material' => 'required|max:80',
+            'description' => 'nullable',
+            'iamge'=> 'nullable',
+            'storage'=> 'required',
+            'price' => 'required'
+
+        ]) ;
+
+        
+        $form_data = $request->all();
+        $article->fill($form_data);
+        $article->save();
+
+        return view('admin.article.show', compact('article'));
+
+    }
 }
