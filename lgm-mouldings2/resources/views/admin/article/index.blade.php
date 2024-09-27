@@ -5,6 +5,11 @@
     <h2 class="text-center mt-4">
         Benvenuto nella pagina articoli
     </h2>
+
+    <div class="d-flex justify-content-center py-4">
+        <a class="btn btn-primary" href="{{route('admin.article.create')}}">Aggiungi Nuovo Articolo</a>
+    </div>
+
     <div class="row p-4">
         @foreach ($articles as $article)
 

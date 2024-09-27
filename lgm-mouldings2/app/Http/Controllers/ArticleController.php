@@ -20,4 +20,30 @@ class ArticleController extends Controller
         return view('admin.article.show', compact('article'));
 
     }
+
+    public function create(){
+        return view('admin.article.create');
+    }
+
+    public function store(Request $request){
+        $form_data = $request->validate([
+            'article'=> 'required',
+            'color' => 'required',
+            'material' => 'required|max:80',
+            'description' => 'nullable',
+            'iamge'=> 'nullable',
+            'storage'=> 'required',
+            'price' => 'required'
+
+        ]) ;
+
+        $form_data = $request->all();
+
+        $new_article = Article::create($form_data);
+
+        $new_article -> save();
+
+        return to_route('admin.article.show', $new_article);
+
+    }
 }
