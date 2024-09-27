@@ -21,9 +21,19 @@
                         <li class="col-3 text-center">Prezzo: <strong>{{$article->price}}</strong>€</li>
                     </ul>
 
-                    <div class="d-flex justify-content-center gap-4">
-                        <a class=" btn btn-warning" href="{{route('admin.article.edit', $article)}}">Modifica Articolo</a>
-                        <a class="btn btn-danger" href="">Elimina Articolo</a>
+                    <div class="d-flex justify-content-center gap-4 align-items-start">
+                        <a class=" btn btn-warning" href="{{route('admin.article.edit', $article)}}">Modifica
+                            Articolo</a>
+
+                        <form class="{{route('admin.article.destroy', $article)}}" action="" method="POST">
+
+                        @csrf
+                        @method('DELETE')
+                            <button class="btn btn-danger align-self-center">
+                                Elimina Articolo
+                            </button>
+                        </form>
+
                     </div>
 
 

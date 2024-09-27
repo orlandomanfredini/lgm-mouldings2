@@ -72,4 +72,11 @@ class ArticleController extends Controller
         return view('admin.article.show', compact('article'));
 
     }
+
+    public function destroy(Article $article){
+        $article->delete();
+
+        return to_route('admin.article.index');
+
+    }
 }

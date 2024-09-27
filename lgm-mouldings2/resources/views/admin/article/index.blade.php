@@ -13,7 +13,7 @@
     <div class="row p-4">
         @foreach ($articles as $article)
 
-            <div class="col-4">
+            <div class="col-4 g-4">
                 <div class="card">
                     <div class="card-header">
                         <img src="{{$article->image}}" alt="">
