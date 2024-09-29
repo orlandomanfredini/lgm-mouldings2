@@ -18,4 +18,8 @@ class Article extends Model
         'storage',
         'image'
     ];
+
+    public function categories(){
+        return $this->belongsTo(Category::class);
+    }
 }

@@ -26,7 +26,8 @@
         <div class="mb-3">
             <label for="description" class="form-label">Descrizione</label>
             <div class="d-flex justify-content-center">
-                <textarea rows="15" cols="80" name="description" id="description" value="{{old('description')}}"></textarea>
+                <textarea rows="15" cols="80" name="description" id="description"
+                    value="{{old('description')}}"></textarea>
             </div>
 
         </div>
@@ -35,11 +36,24 @@
         <input type="file" class="form-control" id="image" aria-describedby="inputGroupFileAddon04" aria-label="Upload"
             value="{{old('image')}}">
 
+        <div class="d-flex gap-3 mt-4">
+            <label for="cateries" class="form-label"><strong>Seleziona Categoria:</strong></label>
+            @foreach ($categories as $category)
+                <div class="form-check">
+                    <input @checked(in_array($category->id, old('categories', []))) name="categories[]"
+                        class="form-check-input" type="checkbox" value="{{ $category->id }}" id="tag-{{$category->id}}">
+                    <label class="form-check-label" for="tag-{{$category->id}}">
+                        {{ $category->name }}
+                    </label>
+                </div>
+            @endforeach
+        </div>
 
-            <label for="price" class="form-label mt-4">Prezzo € </label>
+
+        <label for="price" class="form-label mt-4">Prezzo € </label>
         <div class="input-group mb-3">
-            <input type="number" class="form-control" id="price" name="price" step="0.01" min="0" placeholder="Inserisci prezzo"
-                value="{{old('price')}}">
+            <input type="number" class="form-control" id="price" name="price" step="0.01" min="0"
+                placeholder="Inserisci prezzo" value="{{old('price')}}">
         </div>
 
 

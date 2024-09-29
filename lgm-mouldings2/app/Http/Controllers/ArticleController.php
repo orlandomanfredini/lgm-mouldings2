@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Articolo;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -22,7 +23,8 @@ class ArticleController extends Controller
     }
 
     public function create(){
-        return view('admin.article.create');
+        $categories = Category::orderBy('name', 'asc')->get();
+        return view('admin.article.create', compact('categories'));
     }
 
     public function store(Request $request){
@@ -48,7 +50,10 @@ class ArticleController extends Controller
     }
 
     public function edit(Article $article){
-        return view('admin.article.edit', compact('article'));
+
+        $categories = Category::orderBy('name', 'asc')->get();
+
+        return view('admin.article.edit', compact('article', 'categories'));
     }
 
     public function update(Request $request, Article $article){
