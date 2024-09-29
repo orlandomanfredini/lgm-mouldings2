@@ -13,14 +13,17 @@
     <div class="row p-4">
         @foreach ($articles as $article)
 
-            <div class="col-4 g-4">
-                <div class="card">
+            <div class="col-4 g-3">
+                <div class="card d-flex justify-content-center">
                     <div class="card-header">
-                        <img src="{{$article->image}}" alt="">
+                        <div>Articolo: <strong>{{$article->article}}</strong></div>
                     </div>
                     <div class="card-body">
                         <ul class="list-unstyled">
-                            <li>Articolo: <strong>{{$article->article}}</strong></li>
+
+                            <img src="{{$article->image}}" alt="">
+
+
                             <li>Prezzo: {{$article->price}}€</li>
                             <li>Magazzino: {{$article->storage}}ML</li>
                         </ul>
