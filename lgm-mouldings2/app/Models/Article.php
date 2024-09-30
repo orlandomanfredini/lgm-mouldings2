@@ -22,4 +22,8 @@ class Article extends Model
     public function categories(){
         return $this->belongsTo(Category::class);
     }
+
+    public function carts(){
+        return $this->hasMany(Cart::class);
+    }
 }
